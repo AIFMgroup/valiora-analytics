@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="sv">
       <body className="antialiased">
         <AuthProvider>
-          <div className="min-h-screen bg-[#0a0a0f] bg-grid-pattern bg-radial-glow">
+          <div className="min-h-screen bg-white bg-grid-pattern bg-radial-glow">
             {children}
           </div>
         </AuthProvider>

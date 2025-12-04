@@ -5,32 +5,32 @@
 @tailwind utilities;
 
 :root {
-  /* Fintech color palette */
-  --color-bg-primary: #0a0a0f;
-  --color-bg-secondary: #12121a;
-  --color-bg-tertiary: #1a1a25;
-  --color-bg-card: #15151f;
+  /* Light Fintech color palette */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f1f5f9;
+  --color-bg-card: #ffffff;
   
-  --color-accent-primary: #00d4aa;
-  --color-accent-secondary: #00b896;
-  --color-accent-glow: rgba(0, 212, 170, 0.5);
+  --color-accent-primary: #0f766e;
+  --color-accent-secondary: #14b8a6;
+  --color-accent-glow: rgba(15, 118, 110, 0.15);
   
-  --color-text-primary: #ffffff;
-  --color-text-secondary: rgba(255, 255, 255, 0.7);
-  --color-text-tertiary: rgba(255, 255, 255, 0.5);
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94a3b8;
   
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.15);
+  --color-border: rgba(15, 23, 42, 0.08);
+  --color-border-hover: rgba(15, 23, 42, 0.15);
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #00d4aa 0%, #00a896 100%);
-  --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
-  --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+  --gradient-primary: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+  --gradient-dark: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(248,250,252,1) 100%);
   
   /* Shadows */
-  --shadow-glow: 0 0 60px rgba(0, 212, 170, 0.15);
-  --shadow-glow-strong: 0 0 80px rgba(0, 212, 170, 0.25);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 60px rgba(15, 118, 110, 0.1);
+  --shadow-glow-strong: 0 0 80px rgba(15, 118, 110, 0.15);
+  --shadow-card: 0 4px 24px rgba(15, 23, 42, 0.08);
 }
 
 * {
@@ -50,6 +50,12 @@ body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
   min-height: 100vh;
+}
+
+/* Light theme overrides */
+.light-theme {
+  --color-bg-primary: #ffffff;
+  --color-text-primary: #0f172a;
 }
 
 /* Custom scrollbar */
@@ -84,7 +90,7 @@ body {
 /* Card with pulsating glow shadow */
 @layer components {
   .card-glow {
-    @apply relative rounded-2xl border border-white/[0.08] bg-[#15151f];
+    @apply relative rounded-2xl border border-slate-200 bg-white;
     box-shadow: var(--shadow-card);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -94,15 +100,16 @@ body {
     position: absolute;
     inset: -2px;
     border-radius: 18px;
-    background: linear-gradient(135deg, rgba(0, 212, 170, 0.15), transparent, rgba(0, 212, 170, 0.08));
+    background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), transparent, rgba(20, 184, 166, 0.05));
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: -1;
   }
   
   .card-glow:hover {
-    border-color: rgba(0, 212, 170, 0.3);
+    border-color: rgba(15, 118, 110, 0.3);
     transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
   }
   
   .card-glow:hover::before {
@@ -130,23 +137,23 @@ body {
   
   /* Glass effect */
   .glass {
-    @apply backdrop-blur-xl bg-white/[0.03] border border-white/[0.08];
+    @apply backdrop-blur-xl bg-white/80 border border-slate-200;
   }
   
   .glass-strong {
-    @apply backdrop-blur-2xl bg-white/[0.05] border border-white/[0.12];
+    @apply backdrop-blur-2xl bg-white/90 border border-slate-200;
   }
   
   /* Button styles */
   .btn-primary {
-    @apply relative px-6 py-3 rounded-xl font-semibold text-black transition-all duration-300;
+    @apply relative px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300;
     background: var(--gradient-primary);
-    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.25);
+    box-shadow: 0 4px 20px rgba(15, 118, 110, 0.25);
   }
   
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 212, 170, 0.35);
+    box-shadow: 0 8px 30px rgba(15, 118, 110, 0.35);
   }
   
   .btn-primary:active {
@@ -154,39 +161,39 @@ body {
   }
   
   .btn-secondary {
-    @apply px-6 py-3 rounded-xl font-semibold border border-white/20 text-white transition-all duration-300;
-    background: rgba(255, 255, 255, 0.03);
+    @apply px-6 py-3 rounded-xl font-semibold border border-slate-300 text-slate-700 transition-all duration-300;
+    background: white;
   }
   
   .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: #f8fafc;
+    border-color: #94a3b8;
   }
   
   /* Input styles */
   .input-fintech {
-    @apply w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.03] text-white placeholder:text-white/40 transition-all duration-300;
+    @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 placeholder:text-slate-400 transition-all duration-300;
   }
   
   .input-fintech:focus {
-    @apply outline-none border-[#00d4aa]/50 ring-2 ring-[#00d4aa]/20;
+    @apply outline-none border-teal-500 ring-2 ring-teal-500/20;
   }
   
   /* Tab styles */
   .tab-group {
-    @apply flex gap-1 p-1 rounded-xl bg-white/[0.03] border border-white/[0.08];
+    @apply flex gap-1 p-1 rounded-xl bg-slate-100 border border-slate-200;
   }
   
   .tab-item {
-    @apply px-4 py-2 rounded-lg font-medium text-sm text-white/60 transition-all duration-300 cursor-pointer;
+    @apply px-4 py-2 rounded-lg font-medium text-sm text-slate-500 transition-all duration-300 cursor-pointer;
   }
   
   .tab-item:hover {
-    @apply text-white/80 bg-white/[0.05];
+    @apply text-slate-700 bg-white/50;
   }
   
   .tab-item.active {
-    @apply text-black bg-gradient-to-r from-[#00d4aa] to-[#00b896];
+    @apply text-white bg-gradient-to-r from-teal-700 to-teal-500 shadow-sm;
   }
   
   /* Badge styles */
@@ -195,11 +202,11 @@ body {
   }
   
   .badge-primary {
-    @apply badge bg-[#00d4aa]/20 text-[#00d4aa] border border-[#00d4aa]/30;
+    @apply badge bg-teal-50 text-teal-700 border border-teal-200;
   }
   
   .badge-secondary {
-    @apply badge bg-white/10 text-white/70 border border-white/10;
+    @apply badge bg-slate-100 text-slate-600 border border-slate-200;
   }
   
   /* Stat card */
@@ -212,7 +219,7 @@ body {
   }
   
   .stat-card .stat-label {
-    @apply text-sm text-white/50 mt-1;
+    @apply text-sm text-slate-500 mt-1;
   }
 }
 
@@ -223,15 +230,13 @@ body {
 @keyframes shadowPulse {
   0%, 100% {
     box-shadow: 
-      0 0 20px rgba(0, 212, 170, 0.1),
-      0 0 40px rgba(0, 212, 170, 0.05),
-      0 0 60px rgba(0, 212, 170, 0.025);
+      0 4px 20px rgba(15, 118, 110, 0.08),
+      0 8px 40px rgba(15, 118, 110, 0.04);
   }
   50% {
     box-shadow: 
-      0 0 30px rgba(0, 212, 170, 0.2),
-      0 0 60px rgba(0, 212, 170, 0.1),
-      0 0 90px rgba(0, 212, 170, 0.05);
+      0 8px 30px rgba(15, 118, 110, 0.12),
+      0 16px 60px rgba(15, 118, 110, 0.06);
   }
 }
 
@@ -347,14 +352,14 @@ body {
 
 .bg-grid-pattern {
   background-image: 
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   animation: gridPulse 8s ease-in-out infinite;
 }
 
 .bg-radial-glow {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 212, 170, 0.15), transparent);
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(15, 118, 110, 0.08), transparent);
 }
 
 .bg-noise {
@@ -375,15 +380,15 @@ body {
    ===================================================== */
 
 .hero-card {
-  @apply relative overflow-hidden rounded-3xl border border-white/[0.08];
-  background: linear-gradient(145deg, rgba(21, 21, 31, 0.95) 0%, rgba(18, 18, 26, 0.98) 100%);
+  @apply relative overflow-hidden rounded-3xl border border-slate-200 bg-white;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
 }
 
 .hero-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(0, 212, 170, 0.08) 0%, transparent 50%);
+  background: radial-gradient(circle at 30% 20%, rgba(15, 118, 110, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -391,7 +396,7 @@ body {
   position: absolute;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 212, 170, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.08) 0%, transparent 70%);
   filter: blur(60px);
   pointer-events: none;
 }

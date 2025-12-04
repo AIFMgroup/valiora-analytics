@@ -99,18 +99,18 @@ export default function HomePage() {
               alt="Valiora Analytics" 
               width={140} 
               height={40}
-              className="h-9 w-auto brightness-0 invert"
+              className="h-9 w-auto"
             />
           </div>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-white/60 hover:text-white transition-colors">Funktioner</a>
-            <a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">Så fungerar det</a>
-            <a href="#pricing" className="text-white/60 hover:text-white transition-colors">Priser</a>
+            <a href="#features" className="text-slate-600 hover:text-slate-900 transition-colors">Funktioner</a>
+            <a href="#how-it-works" className="text-slate-600 hover:text-slate-900 transition-colors">Så fungerar det</a>
+            <a href="#pricing" className="text-slate-600 hover:text-slate-900 transition-colors">Priser</a>
           </div>
           
           <div className="flex items-center gap-4">
-            <button className="text-white/60 hover:text-white transition-colors hidden sm:block">
+            <button className="text-slate-600 hover:text-slate-900 transition-colors hidden sm:block">
               Logga in
             </button>
             <Link href="/sanity-check" className="btn-primary text-sm">
@@ -127,17 +127,17 @@ export default function HomePage() {
             
             {/* Left column - Text */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00d4aa]/10 border border-[#00d4aa]/20">
-                <span className="w-2 h-2 rounded-full bg-[#00d4aa] animate-pulse" />
-                <span className="text-sm text-[#00d4aa] font-medium">AI-driven företagsanalys</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-200">
+                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                <span className="text-sm text-teal-700 font-medium">AI-driven företagsanalys</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-white">Är ditt företag </span>
+                <span className="text-slate-900">Är ditt företag </span>
                 <span className="text-gradient">redo för försäljning?</span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-white/60 max-w-xl leading-relaxed">
+              <p className="text-lg sm:text-xl text-slate-600 max-w-xl leading-relaxed">
                 Vår Sanity Check analyserar 12 kritiska områden och ger dig en 
                 objektiv bild av ditt företags värde och försäljningsberedskap.
               </p>
@@ -160,19 +160,19 @@ export default function HomePage() {
                   {[1, 2, 3, 4].map((i) => (
                     <div 
                       key={i}
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00d4aa]/30 to-[#00b896]/20 border-2 border-[#0a0a0f] flex items-center justify-center"
+                      className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-100 to-teal-50 border-2 border-white flex items-center justify-center shadow-sm"
                     >
-                      <Users className="w-4 h-4 text-[#00d4aa]" />
+                      <Users className="w-4 h-4 text-teal-600" />
                     </div>
                   ))}
                 </div>
                 <div className="text-sm">
-                  <div className="flex items-center gap-1 text-white">
+                  <div className="flex items-center gap-1 text-slate-900">
                     <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                     <span className="font-semibold">4.9</span>
-                    <span className="text-white/40">/5</span>
+                    <span className="text-slate-400">/5</span>
                   </div>
-                  <p className="text-white/40">Från 500+ recensioner</p>
+                  <p className="text-slate-500">Från 500+ recensioner</p>
                 </div>
               </div>
             </div>
@@ -185,17 +185,17 @@ export default function HomePage() {
                 
                 <div className="relative space-y-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#00d4aa]/10 flex items-center justify-center">
-                      <Building2 className="w-6 h-6 text-[#00d4aa]" />
+                    <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center">
+                      <Building2 className="w-6 h-6 text-teal-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Sanity Check</h3>
-                      <p className="text-sm text-white/50">Komplett företagsanalys</p>
+                      <h3 className="text-lg font-semibold text-slate-900">Sanity Check</h3>
+                      <p className="text-sm text-slate-500">Komplett företagsanalys</p>
                     </div>
                   </div>
                   
                   <div className="space-y-4">
-                    <p className="text-white/70 leading-relaxed">
+                    <p className="text-slate-600 leading-relaxed">
                       Analysera ditt företags försäljningsberedskap genom 12 kritiska 
                       områden och få konkreta insikter på under 10 minuter.
                     </p>
@@ -212,8 +212,8 @@ export default function HomePage() {
                         'Risk & compliance'
                       ].map((item) => (
                         <div key={item} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-[#00d4aa] flex-shrink-0" />
-                          <span className="text-sm text-white/60">{item}</span>
+                          <CheckCircle className="w-4 h-4 text-teal-600 flex-shrink-0" />
+                          <span className="text-sm text-slate-600">{item}</span>
                         </div>
                       ))}
                     </div>
@@ -228,14 +228,14 @@ export default function HomePage() {
                       <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Link>
                     
-                    <div className="flex items-center justify-center gap-4 mt-4 text-sm text-white/40">
+                    <div className="flex items-center justify-center gap-4 mt-4 text-sm text-slate-500">
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
                         <span>~10 min</span>
                       </div>
-                      <div className="w-1 h-1 rounded-full bg-white/20" />
+                      <div className="w-1 h-1 rounded-full bg-slate-300" />
                       <span>Gratis att starta</span>
-                      <div className="w-1 h-1 rounded-full bg-white/20" />
+                      <div className="w-1 h-1 rounded-full bg-slate-300" />
                       <span>Ingen registrering</span>
                     </div>
                   </div>
@@ -246,12 +246,12 @@ export default function HomePage() {
               <div className="absolute -left-4 top-1/4 animate-float delay-200">
                 <div className="glass-strong rounded-xl px-4 py-3 shadow-lg">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-[#00d4aa]/20 flex items-center justify-center">
-                      <Zap className="w-4 h-4 text-[#00d4aa]" />
+                    <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center">
+                      <Zap className="w-4 h-4 text-teal-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-white/50">Genomsnittlig tid</p>
-                      <p className="text-sm font-semibold text-white">10 minuter</p>
+                      <p className="text-xs text-slate-500">Genomsnittlig tid</p>
+                      <p className="text-sm font-semibold text-slate-900">10 minuter</p>
                     </div>
                   </div>
                 </div>
@@ -260,12 +260,12 @@ export default function HomePage() {
               <div className="absolute -right-4 bottom-1/4 animate-float delay-500">
                 <div className="glass-strong rounded-xl px-4 py-3 shadow-lg">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-[#00d4aa]/20 flex items-center justify-center">
-                      <Shield className="w-4 h-4 text-[#00d4aa]" />
+                    <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center">
+                      <Shield className="w-4 h-4 text-teal-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-white/50">AI-driven</p>
-                      <p className="text-sm font-semibold text-white">Objektiv analys</p>
+                      <p className="text-xs text-slate-500">AI-driven</p>
+                      <p className="text-sm font-semibold text-slate-900">Objektiv analys</p>
                     </div>
                   </div>
                 </div>
@@ -294,13 +294,13 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative z-10 px-6 py-24">
+      <section id="features" className="relative z-10 px-6 py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               Komplett analys på <span className="text-gradient">10 minuter</span>
             </h2>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-slate-600">
               Vår Sanity Check täcker alla kritiska områden som påverkar 
               ditt företags attraktionskraft för potentiella köpare.
             </p>
@@ -313,11 +313,11 @@ export default function HomePage() {
                 className="card-glow p-6 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-2xl bg-[#00d4aa]/10 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
-                  <feature.icon className="w-6 h-6 text-[#00d4aa]" />
+                <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                  <feature.icon className="w-6 h-6 text-teal-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-white/50 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -328,10 +328,10 @@ export default function HomePage() {
       <section id="how-it-works" className="relative z-10 px-6 py-24">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               Vem är det för?
             </h2>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-slate-600">
               Vårt verktyg är designat för att stödja alla parter i en transaktion.
             </p>
           </div>
@@ -365,10 +365,10 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
                     {tabContent[activeTab].title}
                   </h3>
-                  <p className="text-lg text-[#00d4aa]">
+                  <p className="text-lg text-teal-600">
                     {tabContent[activeTab].subtitle}
                   </p>
                 </div>
@@ -376,17 +376,17 @@ export default function HomePage() {
                 <ul className="space-y-4">
                   {tabContent[activeTab].points.map((point, index) => (
                     <li key={index} className="flex items-start gap-3 animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                      <div className="w-6 h-6 rounded-full bg-[#00d4aa]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <CheckCircle className="w-4 h-4 text-[#00d4aa]" />
+                      <div className="w-6 h-6 rounded-full bg-teal-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle className="w-4 h-4 text-teal-600" />
                       </div>
-                      <span className="text-white/70">{point}</span>
+                      <span className="text-slate-600">{point}</span>
                     </li>
                   ))}
                 </ul>
                 
                 <Link 
                   href="/sanity-check"
-                  className="inline-flex items-center gap-2 text-[#00d4aa] font-medium hover:gap-3 transition-all group"
+                  className="inline-flex items-center gap-2 text-teal-600 font-medium hover:gap-3 transition-all group"
                 >
                   Kom igång nu
                   <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -394,11 +394,11 @@ export default function HomePage() {
               </div>
               
               <div className="relative">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#00d4aa]/10 to-transparent flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-[#00d4aa]/10 flex items-center justify-center animate-pulse">
-                    {activeTab === 'owner' && <Building2 className="w-16 h-16 text-[#00d4aa]" />}
-                    {activeTab === 'buyer' && <TrendingUp className="w-16 h-16 text-[#00d4aa]" />}
-                    {activeTab === 'advisor' && <Users className="w-16 h-16 text-[#00d4aa]" />}
+                <div className="aspect-square rounded-2xl bg-gradient-to-br from-teal-50 to-transparent flex items-center justify-center">
+                  <div className="w-32 h-32 rounded-full bg-teal-50 flex items-center justify-center animate-pulse">
+                    {activeTab === 'owner' && <Building2 className="w-16 h-16 text-teal-600" />}
+                    {activeTab === 'buyer' && <TrendingUp className="w-16 h-16 text-teal-600" />}
+                    {activeTab === 'advisor' && <Users className="w-16 h-16 text-teal-600" />}
                   </div>
                 </div>
               </div>
@@ -408,14 +408,14 @@ export default function HomePage() {
       </section>
 
       {/* About Pactior Group Section */}
-      <section className="relative z-10 px-6 py-24 bg-gradient-to-b from-transparent to-[#0d0d14]">
+      <section className="relative z-10 px-6 py-24 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#00d4aa] text-sm font-medium mb-3">En del av Pactior Group</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <p className="text-teal-600 text-sm font-medium mb-3">En del av Pactior Group</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               Teknologi kombinerat med <span className="text-gradient">mänsklig expertis</span>
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Valiora Analytics är en del av Pactior Group - finansiella lösningar 
               för framtidens företagare. Vi tror på att förenkla vardagen för de som bygger Sverige.
             </p>
@@ -429,8 +429,8 @@ export default function HomePage() {
               { title: 'Transparens', desc: 'Tydlig kommunikation genom hela processen' }
             ].map((value) => (
               <div key={value.title} className="glass rounded-xl p-5 text-center">
-                <h3 className="text-white font-semibold mb-2">{value.title}</h3>
-                <p className="text-sm text-white/50">{value.desc}</p>
+                <h3 className="text-slate-900 font-semibold mb-2">{value.title}</h3>
+                <p className="text-sm text-slate-500">{value.desc}</p>
               </div>
             ))}
           </div>
@@ -440,7 +440,7 @@ export default function HomePage() {
               href="https://pactior-production.up.railway.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#00d4aa] hover:text-[#00e8b8] transition-colors group"
+              className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 transition-colors group"
             >
               <span className="font-medium">Läs mer om Pactior Group</span>
               <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
@@ -453,10 +453,10 @@ export default function HomePage() {
       <section className="relative z-10 px-6 py-24">
         <div className="max-w-4xl mx-auto text-center">
           <div className="card-glow shadow-pulse p-10 sm:p-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               Redo att analysera ditt företag?
             </h2>
-            <p className="text-lg text-white/60 mb-8 max-w-xl mx-auto">
+            <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto">
               Få en objektiv bild av ditt företags försäljningsberedskap 
               och konkreta rekommendationer på under 10 minuter.
             </p>
@@ -467,7 +467,7 @@ export default function HomePage() {
               Starta gratis analys
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
-            <p className="text-sm text-white/40 mt-4">
+            <p className="text-sm text-slate-500 mt-4">
               Ingen registrering krävs • Resultat på 10 minuter
             </p>
           </div>
@@ -475,7 +475,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 px-6 py-16 border-t border-white/[0.05]">
+      <footer className="relative z-10 px-6 py-16 border-t border-slate-200 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             {/* Brand & Description */}
@@ -485,20 +485,20 @@ export default function HomePage() {
                 alt="Valiora Analytics" 
                 width={120} 
                 height={36}
-                className="h-8 w-auto brightness-0 invert"
+                className="h-8 w-auto"
               />
-              <p className="text-white/50 text-sm leading-relaxed max-w-md">
+              <p className="text-slate-500 text-sm leading-relaxed max-w-md">
                 Valiora Analytics erbjuder professionella företagsvärderingar med hjälp av 
                 avancerad dataanalys och branschexpertis. Få en rättvis och transparent 
                 värdering av ditt företag.
               </p>
               <div className="pt-2">
-                <p className="text-xs text-white/30 mb-2">En del av</p>
+                <p className="text-xs text-slate-400 mb-2">En del av</p>
                 <a 
                   href="https://pactior-production.up.railway.app" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-[#00d4aa] hover:text-[#00e8b8] transition-colors group"
+                  className="inline-flex items-center gap-2 text-sm text-teal-600 hover:text-teal-700 transition-colors group"
                 >
                   <span className="font-semibold">Pactior Group</span>
                   <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -508,20 +508,20 @@ export default function HomePage() {
             
             {/* Navigation */}
             <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-white">Navigation</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Navigation</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#features" className="text-sm text-white/50 hover:text-white/80 transition-colors">
+                  <a href="#features" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
                     Funktioner
                   </a>
                 </li>
                 <li>
-                  <a href="#how-it-works" className="text-sm text-white/50 hover:text-white/80 transition-colors">
+                  <a href="#how-it-works" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
                     Så fungerar det
                   </a>
                 </li>
                 <li>
-                  <Link href="/sanity-check" className="text-sm text-white/50 hover:text-white/80 transition-colors">
+                  <Link href="/sanity-check" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
                     Starta analys
                   </Link>
                 </li>
@@ -530,14 +530,14 @@ export default function HomePage() {
             
             {/* Pactior Group */}
             <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-white">Pactior Group</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Pactior Group</h4>
               <ul className="space-y-2">
                 <li>
                   <a 
                     href="https://pactior-production.up.railway.app" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-sm text-white/50 hover:text-white/80 transition-colors"
+                    className="text-sm text-slate-500 hover:text-slate-700 transition-colors"
                   >
                     Om Pactior Group
                   </a>
@@ -547,7 +547,7 @@ export default function HomePage() {
                     href="https://pactior-production.up.railway.app" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-sm text-white/50 hover:text-white/80 transition-colors"
+                    className="text-sm text-slate-500 hover:text-slate-700 transition-colors"
                   >
                     Trestor Partners
                   </a>
@@ -557,7 +557,7 @@ export default function HomePage() {
                     href="https://pactior-production.up.railway.app" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-sm text-white/50 hover:text-white/80 transition-colors"
+                    className="text-sm text-slate-500 hover:text-slate-700 transition-colors"
                   >
                     Kontakt
                   </a>
@@ -567,14 +567,14 @@ export default function HomePage() {
           </div>
           
           {/* Bottom bar */}
-          <div className="pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/30">
+          <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-slate-400">
               © 2025 Valiora Analytics. En del av Pactior Group AB. Alla rättigheter förbehållna.
             </p>
-            <div className="flex items-center gap-6 text-xs text-white/30">
-              <a href="#" className="hover:text-white/50 transition-colors">Integritetspolicy</a>
-              <a href="#" className="hover:text-white/50 transition-colors">Villkor</a>
-              <a href="#" className="hover:text-white/50 transition-colors">Cookies</a>
+            <div className="flex items-center gap-6 text-xs text-slate-400">
+              <a href="#" className="hover:text-slate-600 transition-colors">Integritetspolicy</a>
+              <a href="#" className="hover:text-slate-600 transition-colors">Villkor</a>
+              <a href="#" className="hover:text-slate-600 transition-colors">Cookies</a>
             </div>
           </div>
         </div>
