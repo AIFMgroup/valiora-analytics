@@ -14,6 +14,7 @@
     "@react-pdf/renderer": "^3.4.4",
     "lucide-react": "^0.460.0",
     "next": "14.2.18",
+    "next-intl": "^4.5.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zustand": "^4.5.5"
@@ -32,4 +33,3 @@
     "typescript": "^5.6.3"
   }
 }
-
