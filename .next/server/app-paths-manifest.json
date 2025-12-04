@@ -1,3 +1,11 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/analyze-company/[analysisId]/route": "app/api/analyze-company/[analysisId]/route.js",
+  "/api/valuation/draft/route": "app/api/valuation/draft/route.js",
+  "/api/valuation/premium/save/route": "app/api/valuation/premium/save/route.js",
+  "/api/analyze-company/route": "app/api/analyze-company/route.js",
+  "/api/valuation/premium/generate/route": "app/api/valuation/premium/generate/route.js",
+  "/sanity-check/page": "app/sanity-check/page.js",
+  "/page": "app/page.js",
+  "/api/valuation/route": "app/api/valuation/route.js"
 }

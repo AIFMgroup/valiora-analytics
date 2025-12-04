@@ -57,7 +57,7 @@ function HelpTooltip({ content, title }: { content: string; title?: string }) {
         }}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        className="ml-1.5 p-0.5 rounded-full text-white/40 hover:text-white/70 hover:bg-white/10 transition-all duration-200 focus:outline-none"
+        className="ml-1.5 p-0.5 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-all duration-200 focus:outline-none"
         aria-label="Visa hjälp"
       >
         <HelpCircle className="w-4 h-4" />
@@ -65,7 +65,7 @@ function HelpTooltip({ content, title }: { content: string; title?: string }) {
 
       {isOpen && (
         <div 
-          className="absolute z-50 w-64 sm:w-72 p-4 rounded-xl border bg-gray-900/95 backdrop-blur-sm text-white border-white/20 shadow-2xl bottom-full mb-2"
+          className="absolute z-50 w-64 sm:w-72 p-4 rounded-xl border bg-slate-800 backdrop-blur-sm text-slate-900 border-slate-300 shadow-2xl bottom-full mb-2"
           style={{ 
             left: '50%',
             transform: 'translateX(-50%)',
@@ -73,11 +73,11 @@ function HelpTooltip({ content, title }: { content: string; title?: string }) {
           }}
         >
           {title && (
-            <h4 className="font-semibold text-sm mb-1.5 text-white">{title}</h4>
+            <h4 className="font-semibold text-sm mb-1.5 text-slate-900">{title}</h4>
           )}
-          <p className="text-sm leading-relaxed text-white/80">{content}</p>
+          <p className="text-sm leading-relaxed text-slate-700">{content}</p>
           <div 
-            className="absolute w-0 h-0 border-[6px] top-full border-l-transparent border-r-transparent border-b-transparent border-t-gray-900/95"
+            className="absolute w-0 h-0 border-[6px] top-full border-l-transparent border-r-transparent border-b-transparent border-t-slate-800"
             style={{ left: '50%', transform: 'translateX(-50%)' }}
           />
         </div>
@@ -99,7 +99,7 @@ function LabelWithHelp({
   required?: boolean 
 }) {
   return (
-    <label className="flex items-center text-sm font-medium text-white/80 mb-2">
+    <label className="flex items-center text-sm font-medium text-slate-700 mb-2">
       <span>{label}{required && ' *'}</span>
       <HelpTooltip content={helpContent} title={helpTitle} />
     </label>
@@ -182,7 +182,7 @@ function FileUploadZone({
           relative border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all duration-200
           ${isDragging 
             ? 'border-emerald-400 bg-emerald-400/10' 
-            : 'border-white/20 hover:border-white/40 hover:bg-white/5'
+            : 'border-slate-300 hover:border-slate-400 hover:bg-slate-50'
           }
         `}
       >
@@ -197,15 +197,15 @@ function FileUploadZone({
         
         <div className="flex flex-col items-center gap-2">
           <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-            isDragging ? 'bg-emerald-400/20' : 'bg-white/10'
+            isDragging ? 'bg-emerald-400/20' : 'bg-slate-100'
           }`}>
-            <Upload className={`w-5 h-5 ${isDragging ? 'text-emerald-400' : 'text-white/60'}`} />
+            <Upload className={`w-5 h-5 ${isDragging ? 'text-emerald-400' : 'text-slate-500'}`} />
           </div>
           <div>
-            <p className="text-sm text-white/80">
-              <span className="font-medium text-white">Klicka för att ladda upp</span> eller dra och släpp
+            <p className="text-sm text-slate-700">
+              <span className="font-medium text-slate-900">Klicka för att ladda upp</span> eller dra och släpp
             </p>
-            <p className="text-xs text-white/50 mt-1">
+            <p className="text-xs text-slate-400 mt-1">
               PDF, Word, Excel, PowerPoint, bilder (max 10 MB)
             </p>
           </div>
@@ -218,12 +218,12 @@ function FileUploadZone({
           {files.map(file => (
             <div 
               key={file.id}
-              className="flex items-center gap-3 bg-white/5 rounded-lg px-3 py-2 group"
+              className="flex items-center gap-3 bg-slate-50 rounded-lg px-3 py-2 group"
             >
               <span className="text-lg">{getFileIcon(file.type)}</span>
               <div className="flex-1 min-w-0">
-                <p className="text-sm text-white truncate">{file.name}</p>
-                <p className="text-xs text-white/50">{formatFileSize(file.size)}</p>
+                <p className="text-sm text-slate-900 truncate">{file.name}</p>
+                <p className="text-xs text-slate-400">{formatFileSize(file.size)}</p>
               </div>
               <button
                 type="button"
@@ -231,7 +231,7 @@ function FileUploadZone({
                   e.stopPropagation()
                   removeFile(file.id)
                 }}
-                className="p-1.5 rounded-lg text-white/40 hover:text-red-400 hover:bg-red-400/10 transition-colors opacity-0 group-hover:opacity-100"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-400/10 transition-colors opacity-0 group-hover:opacity-100"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -956,7 +956,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
   const renderScalePills = (field: keyof SanitycheckState, label: string, helpKey?: keyof typeof HELP_TEXTS) => (
     <div>
       <div className="flex items-center mb-3">
-        <span className="text-sm font-medium text-white/80">{label}</span>
+        <span className="text-sm font-medium text-slate-700">{label}</span>
         {helpKey && HELP_TEXTS[helpKey] && (
           <HelpTooltip content={HELP_TEXTS[helpKey].content} title={HELP_TEXTS[helpKey].title} />
         )}
@@ -970,21 +970,21 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             className={`w-10 h-10 rounded-full text-sm font-medium transition-all duration-200 ${
               state[field] === opt
                 ? 'bg-white text-navy'
-                : 'bg-white/10 text-white/80 hover:bg-white/20'
+                : 'bg-slate-100 text-slate-700 hover:bg-white/20'
             }`}
           >
             {opt}
           </button>
         ))}
       </div>
-      <p className="text-xs text-white/50 mt-2">1 = Lågt/Nej, 5 = Högt/Ja</p>
+      <p className="text-xs text-slate-400 mt-2">1 = Lågt/Nej, 5 = Högt/Ja</p>
     </div>
   )
 
   const renderYesNo = (field: keyof SanitycheckState, label: string, helpKey?: keyof typeof HELP_TEXTS) => (
     <div>
       <div className="flex items-center mb-3">
-        <span className="text-sm font-medium text-white/80">{label}</span>
+        <span className="text-sm font-medium text-slate-700">{label}</span>
         {helpKey && HELP_TEXTS[helpKey] && (
           <HelpTooltip content={HELP_TEXTS[helpKey].content} title={HELP_TEXTS[helpKey].title} />
         )}
@@ -998,7 +998,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
               state[field] === opt
                 ? 'bg-white text-navy'
-                : 'bg-white/10 text-white/80 hover:bg-white/20'
+                : 'bg-slate-100 text-slate-700 hover:bg-white/20'
             }`}
           >
             {opt}
@@ -1017,7 +1017,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
   ) => (
     <div>
       <div className="flex items-center mb-3">
-        <span className="text-sm font-medium text-white/80">{label}</span>
+        <span className="text-sm font-medium text-slate-700">{label}</span>
         {helpKey && HELP_TEXTS[helpKey] && (
           <HelpTooltip content={HELP_TEXTS[helpKey].content} title={HELP_TEXTS[helpKey].title} />
         )}
@@ -1031,7 +1031,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
               state[field] === opt
                 ? 'bg-white text-navy'
-                : 'bg-white/10 text-white/80 hover:bg-white/20'
+                : 'bg-slate-100 text-slate-700 hover:bg-white/20'
             }`}
           >
             {opt}
@@ -1068,8 +1068,8 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">1. Bolagsöversikt & syfte</h2>
-              <p className="text-white/70">Grundläggande bild av bolaget, nyckeltal och varför ni överväger en försäljning.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">1. Bolagsöversikt & syfte</h2>
+              <p className="text-slate-600">Grundläggande bild av bolaget, nyckeltal och varför ni överväger en försäljning.</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-4">
@@ -1079,7 +1079,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                   type="text"
                   value={state.companyName}
                   onChange={e => updateField("companyName", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                   placeholder="Företag AB"
                 />
               </div>
@@ -1089,7 +1089,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                   type="text"
                   value={state.orgNumber}
                   onChange={e => updateField("orgNumber", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                   placeholder="556XXX-XXXX"
                 />
               </div>
@@ -1099,7 +1099,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                   type="text"
                   value={state.website}
                   onChange={e => updateField("website", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                   placeholder="https://..."
                 />
               </div>
@@ -1108,22 +1108,22 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 <button
                   type="button"
                   onClick={() => setShowIndustryModal(true)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-left text-white focus:outline-none focus:border-white/40 transition-colors flex items-center justify-between hover:bg-white/15"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-left text-slate-900 focus:outline-none focus:border-slate-400 transition-colors flex items-center justify-between hover:bg-white/15"
                 >
-                  <span className={state.industry ? 'text-white' : 'text-white/40'}>
+                  <span className={state.industry ? 'text-slate-900' : 'text-slate-400'}>
                     {state.industry || 'Välj bransch...'}
                   </span>
-                  <ChevronDown className="w-5 h-5 text-white/60" />
+                  <ChevronDown className="w-5 h-5 text-slate-500" />
                 </button>
               </div>
             </div>
 
-            <div className="border-t border-white/10 pt-6">
+            <div className="border-t border-slate-200 pt-6">
               <LabelWithHelp label="Kort om varför ni överväger att sälja" helpContent={HELP_TEXTS.whySell.content} helpTitle={HELP_TEXTS.whySell.title} required />
               <textarea
                 value={state.whySell}
                 onChange={e => updateField("whySell", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
                 placeholder="Beskriv bakgrunden till att ni överväger en försäljning..."
               />
               <div className="flex flex-wrap gap-2 mt-3">
@@ -1135,7 +1135,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                       state.whySellReasons.includes(opt)
                         ? 'bg-white text-navy'
-                        : 'bg-white/10 text-white/70 hover:bg-white/20'
+                        : 'bg-slate-100 text-slate-600 hover:bg-white/20'
                     }`}
                   >
                     {opt}
@@ -1155,27 +1155,27 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">2. Ägarberoende & ledning</h2>
-              <p className="text-white/70">Hur beroende är verksamheten av nuvarande ägare och nyckelpersoner?</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">2. Ägarberoende & ledning</h2>
+              <p className="text-slate-600">Hur beroende är verksamheten av nuvarande ägare och nyckelpersoner?</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 {renderYesNo("ownerIndependent", "Bolaget kan fungera i vardagen utan nuvarande ägare *", "ownerIndependent")}
-                <label className="block text-sm font-medium text-white/80 mb-2 mt-4">Kommentar (valfritt)</label>
+                <label className="block text-sm font-medium text-slate-700 mb-2 mt-4">Kommentar (valfritt)</label>
                 <textarea
                   value={state.ownerIndependentComment}
                   onChange={e => updateField("ownerIndependentComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                 />
               </div>
               <div>
                 {renderScalePills("leadershipScale", "Formellt definierat ledningsteam (roller, ansvar) *", "leadershipScale")}
-                <label className="block text-sm font-medium text-white/80 mb-2 mt-4">Kommentar (valfritt)</label>
+                <label className="block text-sm font-medium text-slate-700 mb-2 mt-4">Kommentar (valfritt)</label>
                 <textarea
                   value={state.leadershipComment}
                   onChange={e => updateField("leadershipComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                 />
               </div>
             </div>
@@ -1186,11 +1186,11 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-white/80 mb-2">Kommentar kring sårbarheter kopplat till ägare/nyckelpersoner</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Kommentar kring sårbarheter kopplat till ägare/nyckelpersoner</label>
               <textarea
                 value={state.ownerComment}
                 onChange={e => updateField("ownerComment", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
               />
             </div>
           </div>
@@ -1200,8 +1200,8 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">3. Intäkter & affärsmodell</h2>
-              <p className="text-white/70">Hur bolaget tjänar pengar och hur stabila intäkterna är över tid.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">3. Intäkter & affärsmodell</h2>
+              <p className="text-slate-600">Hur bolaget tjänar pengar och hur stabila intäkterna är över tid.</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
@@ -1213,10 +1213,10 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                   max="100"
                   value={state.recurringPercent}
                   onChange={e => updateField("recurringPercent", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                   placeholder="0-100"
                 />
-                <p className="text-xs text-white/50 mt-1">Andel av omsättning som är återkommande (avtal/abonnemang)</p>
+                <p className="text-xs text-slate-400 mt-1">Andel av omsättning som är återkommande (avtal/abonnemang)</p>
               </div>
               <div>
                 <LabelWithHelp label="Andel från huvudprodukter/tjänster (%)" helpContent={HELP_TEXTS.mainProductShare.content} helpTitle={HELP_TEXTS.mainProductShare.title} required />
@@ -1226,19 +1226,19 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                   max="100"
                   value={state.mainProductShare}
                   onChange={e => updateField("mainProductShare", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                   placeholder="0-100"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white/80 mb-2">Andel från övriga produkter/tjänster (%)</label>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Andel från övriga produkter/tjänster (%)</label>
                 <input
                   type="number"
                   min="0"
                   max="100"
                   value={state.otherProductShare}
                   onChange={e => updateField("otherProductShare", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                   placeholder="0-100"
                 />
               </div>
@@ -1250,7 +1250,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
               <textarea
                 value={state.pricingText}
                 onChange={e => updateField("pricingText", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
                 placeholder="Beskriv hur ni prissätter era produkter/tjänster (fast pris, abonnemang, usage-based, etc.)"
               />
             </div>
@@ -1266,19 +1266,19 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">4. Lönsamhet & kassaflöde</h2>
-              <p className="text-white/70">Lönsamhet, kassaflöde och rörelsekapital ur en köpares perspektiv.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">4. Lönsamhet & kassaflöde</h2>
+              <p className="text-slate-600">Lönsamhet, kassaflöde och rörelsekapital ur en köpares perspektiv.</p>
             </div>
 
             {/* Finansiella nyckeltal - VIKTIGT för värdering */}
             <div className="bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-xl p-5 border border-emerald-500/30">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <BarChart3 className="w-4 h-4 text-white" />
+                  <BarChart3 className="w-4 h-4 text-slate-900" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Finansiella nyckeltal</h3>
-                  <p className="text-xs text-white/60">Dessa siffror används för att beräkna den indikativa värderingen</p>
+                  <h3 className="text-lg font-semibold text-slate-900">Finansiella nyckeltal</h3>
+                  <p className="text-xs text-slate-500">Dessa siffror används för att beräkna den indikativa värderingen</p>
                 </div>
               </div>
               
@@ -1291,7 +1291,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     min="0"
                     value={state.annualRevenue}
                     onChange={e => updateField("annualRevenue", e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                     placeholder="T.ex. 25.5"
                   />
                 </div>
@@ -1302,7 +1302,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     step="0.1"
                     value={state.revenueGrowth}
                     onChange={e => updateField("revenueGrowth", e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                     placeholder="T.ex. 12 (CAGR senaste 3 år)"
                   />
                 </div>
@@ -1313,7 +1313,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     step="0.1"
                     value={state.ebitda}
                     onChange={e => updateField("ebitda", e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                     placeholder="T.ex. 4.2 (normaliserad)"
                   />
                 </div>
@@ -1327,7 +1327,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       max="100"
                       value={state.ebitdaMargin || (calculatedMargin || "")}
                       onChange={e => updateField("ebitdaMargin", e.target.value)}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                      className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                       placeholder="Beräknas automatiskt"
                     />
                     {calculatedMargin && !state.ebitdaMargin && (
@@ -1340,7 +1340,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
               </div>
 
               {/* Skuldsättning för equity value */}
-              <div className="grid md:grid-cols-2 gap-4 mt-4 pt-4 border-t border-white/10">
+              <div className="grid md:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-200">
                 <div>
                   <LabelWithHelp label="Räntebärande skulder (MSEK)" helpContent={HELP_TEXTS.totalDebt.content} helpTitle={HELP_TEXTS.totalDebt.title} />
                   <input
@@ -1349,7 +1349,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     min="0"
                     value={state.totalDebt}
                     onChange={e => updateField("totalDebt", e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                     placeholder="T.ex. 3.0"
                   />
                 </div>
@@ -1360,7 +1360,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     step="0.1"
                     value={state.netDebt}
                     onChange={e => updateField("netDebt", e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                     placeholder="T.ex. 1.5 (negativt = nettokassa)"
                   />
                 </div>
@@ -1368,12 +1368,12 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
 
               {/* Info om värdering */}
               {revenue > 0 && ebitdaVal > 0 && (
-                <div className="mt-4 p-3 rounded-lg bg-white/10 border border-white/20">
+                <div className="mt-4 p-3 rounded-lg bg-slate-100 border border-slate-300">
                   <div className="flex items-start gap-2">
                     <Sparkles className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-white font-medium">Indikativ beräkning</p>
-                      <p className="text-xs text-white/70 mt-1">
+                      <p className="text-sm text-slate-900 font-medium">Indikativ beräkning</p>
+                      <p className="text-xs text-slate-600 mt-1">
                         Baserat på {ebitdaVal} MSEK EBITDA och branschmultiplar kan företagsvärdet (EV) 
                         preliminärt uppskattas till {(ebitdaVal * 4).toFixed(1)}-{(ebitdaVal * 7).toFixed(1)} MSEK.
                         {parseFloat(state.netDebt) > 0 && ` Justerat för nettoskuld: ${(ebitdaVal * 4 - parseFloat(state.netDebt)).toFixed(1)}-${(ebitdaVal * 7 - parseFloat(state.netDebt)).toFixed(1)} MSEK.`}
@@ -1385,12 +1385,12 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             </div>
             
             {/* EBITDA kvalitet */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-4 h-4 text-emerald-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">EBITDA-kvalitet</h3>
+                <h3 className="text-lg font-semibold text-slate-900">EBITDA-kvalitet</h3>
               </div>
               {renderScalePills("ebitdaStabilityScale", "Stabilitet i EBITDA de senaste 3 åren *", "ebitdaStabilityScale")}
               <div>
@@ -1398,19 +1398,19 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 <textarea
                   value={state.ebitdaComment}
                   onChange={e => updateField("ebitdaComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                   placeholder="T.ex. engångsposter, säsongsvariationer, normaliserad EBITDA..."
                 />
               </div>
             </div>
 
             {/* Kassaflöde */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <BarChart3 className="w-4 h-4 text-blue-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Kassaflöde</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Kassaflöde</h3>
               </div>
               {renderScalePills("cashflowMatchScale", "Hur väl speglar kassaflödet lönsamheten? *", "cashflowMatchScale")}
               <div>
@@ -1418,19 +1418,19 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 <textarea
                   value={state.cashflowComment}
                   onChange={e => updateField("cashflowComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                   placeholder="T.ex. investeringsbehov, skillnad mellan vinst och kassaflöde..."
                 />
               </div>
             </div>
 
             {/* Rörelsekapital */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center">
                   <Target className="w-4 h-4 text-amber-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Rörelsekapital</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Rörelsekapital</h3>
               </div>
               {renderScalePills("workingCapitalScale", "Rörelsekapitalnivå i förhållande till omsättning *", "workingCapitalScale")}
               <div>
@@ -1438,45 +1438,45 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 <textarea
                   value={state.workingCapitalComment}
                   onChange={e => updateField("workingCapitalComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                   placeholder="T.ex. säsongsvariationer, betalningstider, lageromsättning..."
                 />
               </div>
             </div>
 
             {/* Skuldsättning */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-rose-500/20 rounded-lg flex items-center justify-center">
                   <Shield className="w-4 h-4 text-rose-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Skuldsättning</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Skuldsättning</h3>
               </div>
               <div>
                 <LabelWithHelp label="Kommentar kring lån, skulder och eventuella covenants" helpContent={HELP_TEXTS.debtComment.content} helpTitle={HELP_TEXTS.debtComment.title} required />
                 <textarea
                   value={state.debtComment}
                   onChange={e => updateField("debtComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
                   placeholder="T.ex. banklån, checkräkningskredit, leasing, covenants..."
                 />
               </div>
             </div>
 
             {/* Övriga tillgångar */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
                   <Briefcase className="w-4 h-4 text-purple-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Övriga tillgångar</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Övriga tillgångar</h3>
               </div>
               
               {/* Aktieinnehav */}
               <div className="space-y-3">
                 <div>
                   <div className="flex items-center mb-3">
-                    <span className="text-sm font-medium text-white/80">Äger bolaget aktier i andra företag?</span>
+                    <span className="text-sm font-medium text-slate-700">Äger bolaget aktier i andra företag?</span>
                     <HelpTooltip content={HELP_TEXTS.hasSharesInOtherCompanies.content} title={HELP_TEXTS.hasSharesInOtherCompanies.title} />
                   </div>
                   <div className="flex gap-2 flex-wrap">
@@ -1488,7 +1488,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                           state.hasSharesInOtherCompanies === opt
                             ? 'bg-white text-navy'
-                            : 'bg-white/10 text-white/80 hover:bg-white/20'
+                            : 'bg-slate-100 text-slate-700 hover:bg-white/20'
                         }`}
                       >
                         {opt}
@@ -1501,7 +1501,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                   <div className="pl-4 border-l-2 border-purple-500/30 space-y-4 animate-in slide-in-from-top-2 duration-300">
                     <div>
                       <div className="flex items-center mb-3">
-                        <span className="text-sm font-medium text-white/80">Ska aktierna inkluderas i värderingen?</span>
+                        <span className="text-sm font-medium text-slate-700">Ska aktierna inkluderas i värderingen?</span>
                         <HelpTooltip content={HELP_TEXTS.sharesIncludedInValuation.content} title={HELP_TEXTS.sharesIncludedInValuation.title} />
                       </div>
                       <div className="flex gap-2 flex-wrap">
@@ -1513,7 +1513,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                               state.sharesIncludedInValuation === opt
                                 ? 'bg-white text-navy'
-                                : 'bg-white/10 text-white/80 hover:bg-white/20'
+                                : 'bg-slate-100 text-slate-700 hover:bg-white/20'
                             }`}
                           >
                             {opt}
@@ -1526,7 +1526,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       <textarea
                         value={state.sharesDescription}
                         onChange={e => updateField("sharesDescription", e.target.value)}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                        className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                         placeholder="T.ex. 100% i Dotterbolag AB (bokfört 500 tkr, marknadsvärde ca 2 MSEK)..."
                       />
                     </div>
@@ -1535,10 +1535,10 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
               </div>
 
               {/* Övervärden i materiella tillgångar */}
-              <div className="space-y-3 pt-4 border-t border-white/10">
+              <div className="space-y-3 pt-4 border-t border-slate-200">
                 <div>
                   <div className="flex items-center mb-3">
-                    <span className="text-sm font-medium text-white/80">Finns övervärden i materiella anläggningstillgångar?</span>
+                    <span className="text-sm font-medium text-slate-700">Finns övervärden i materiella anläggningstillgångar?</span>
                     <HelpTooltip content={HELP_TEXTS.hasExcessValueInAssets.content} title={HELP_TEXTS.hasExcessValueInAssets.title} />
                   </div>
                   <div className="flex gap-2 flex-wrap">
@@ -1550,7 +1550,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                           state.hasExcessValueInAssets === opt
                             ? 'bg-white text-navy'
-                            : 'bg-white/10 text-white/80 hover:bg-white/20'
+                            : 'bg-slate-100 text-slate-700 hover:bg-white/20'
                         }`}
                       >
                         {opt}
@@ -1565,7 +1565,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     <textarea
                       value={state.excessValueDescription}
                       onChange={e => updateField("excessValueDescription", e.target.value)}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                      className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                       placeholder="T.ex. Fastighet bokförd till 3 MSEK, marknadsvärde ca 8 MSEK..."
                     />
                   </div>
@@ -1586,7 +1586,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             </div>
 
             {/* Dokument */}
-            <div className="border-t border-white/10 pt-6">
+            <div className="border-t border-slate-200 pt-6">
               {renderDocumentQuestion("financialDocs", "Bokslut, månadsrapporter och prognoser är sammanställda", "Ladda upp finansiella dokument")}
             </div>
           </div>
@@ -1604,17 +1604,17 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">5. Kundbas & marknad</h2>
-              <p className="text-white/70">Kundbas, kundkoncentration och marknadsposition.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">5. Kundbas & marknad</h2>
+              <p className="text-slate-600">Kundbas, kundkoncentration och marknadsposition.</p>
             </div>
             
             {/* Antal kunder med riskindikator */}
-            <div className="bg-white/5 rounded-xl p-5">
+            <div className="bg-slate-50 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <Users className="w-4 h-4 text-blue-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Kundportfölj</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Kundportfölj</h3>
               </div>
               
               <div className="grid md:grid-cols-3 gap-4">
@@ -1625,7 +1625,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     min="0"
                     value={state.totalCustomers}
                     onChange={e => updateField("totalCustomers", e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                     placeholder="Ange antal"
                   />
                 </div>
@@ -1637,7 +1637,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     max="100"
                     value={state.concentrationPercent}
                     onChange={e => updateField("concentrationPercent", e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                     placeholder="Top 3-5 kunder"
                   />
                 </div>
@@ -1649,7 +1649,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     max="100"
                     value={state.stabilityPercent}
                     onChange={e => updateField("stabilityPercent", e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors"
                     placeholder="Årlig retention"
                   />
                 </div>
@@ -1692,7 +1692,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
               <textarea
                 value={state.marketPositionText}
                 onChange={e => updateField("marketPositionText", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
                 placeholder="Nisch, lokal/regional/nationell, konkurrenter, etc."
               />
             </div>
@@ -1700,11 +1700,11 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             <div className="grid md:grid-cols-2 gap-6">
               {renderScalePills("marketGrowthScale", "Marknadens tillväxttakt och framtidsutsikter *", "marketGrowthScale")}
               <div>
-                <label className="block text-sm font-medium text-white/80 mb-2">Motivering</label>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Motivering</label>
                 <textarea
                   value={state.marketGrowthComment}
                   onChange={e => updateField("marketGrowthComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                 />
               </div>
             </div>
@@ -1715,8 +1715,8 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">6. Team & organisation</h2>
-              <p className="text-white/70">Organisation, kultur och hur skalbar verksamheten är.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">6. Team & organisation</h2>
+              <p className="text-slate-600">Organisation, kultur och hur skalbar verksamheten är.</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
@@ -1731,7 +1731,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
               <textarea
                 value={state.cultureText}
                 onChange={e => updateField("cultureText", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
               />
             </div>
           </div>
@@ -1741,8 +1741,8 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">7. Processer & system</h2>
-              <p className="text-white/70">Kärnprocesser och hur väl systemen stödjer affären.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">7. Processer & system</h2>
+              <p className="text-slate-600">Kärnprocesser och hur väl systemen stödjer affären.</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
@@ -1751,7 +1751,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 <textarea
                   value={state.processDocComment}
                   onChange={e => updateField("processDocComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[60px] mt-3"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[60px] mt-3"
                   placeholder="Kommentar..."
                 />
               </div>
@@ -1760,7 +1760,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 <textarea
                   value={state.systemLandscapeComment}
                   onChange={e => updateField("systemLandscapeComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[60px] mt-3"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[60px] mt-3"
                   placeholder="Kommentar..."
                 />
               </div>
@@ -1770,7 +1770,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 <textarea
                   value={state.bottlenecksComment}
                   onChange={e => updateField("bottlenecksComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[60px] mt-3"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[60px] mt-3"
                   placeholder="Beskriv eventuella flaskhalsar..."
                 />
               </div>
@@ -1782,23 +1782,23 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">8. Risk & compliance</h2>
-              <p className="text-white/70">Juridisk, finansiell och operativ risk.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">8. Risk & compliance</h2>
+              <p className="text-slate-600">Juridisk, finansiell och operativ risk.</p>
             </div>
             
             {/* Finansiell risk */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-rose-500/20 rounded-lg flex items-center justify-center">
                   <AlertTriangle className="w-4 h-4 text-rose-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Finansiell risk</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Finansiell risk</h3>
               </div>
               
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <div className="flex items-center mb-3">
-                    <span className="text-sm font-medium text-white/80">Finns betalningsanmärkningar/skulder? *</span>
+                    <span className="text-sm font-medium text-slate-700">Finns betalningsanmärkningar/skulder? *</span>
                     <HelpTooltip content={HELP_TEXTS.creditIssues.content} title={HELP_TEXTS.creditIssues.title} />
                   </div>
                   <div className="flex gap-2 flex-wrap">
@@ -1810,7 +1810,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                           state.creditIssues === opt
                             ? 'bg-white text-navy'
-                            : 'bg-white/10 text-white/80 hover:bg-white/20'
+                            : 'bg-slate-100 text-slate-700 hover:bg-white/20'
                         }`}
                       >
                         {opt}
@@ -1823,18 +1823,18 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             </div>
 
             {/* Skatter & deklarationer */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center">
                   <FileText className="w-4 h-4 text-amber-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Skatter & deklarationer</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Skatter & deklarationer</h3>
               </div>
               
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <div className="flex items-center mb-3">
-                    <span className="text-sm font-medium text-white/80">Är skatter och avgifter betalda i tid? *</span>
+                    <span className="text-sm font-medium text-slate-700">Är skatter och avgifter betalda i tid? *</span>
                     <HelpTooltip content={HELP_TEXTS.taxesPaidOnTime.content} title={HELP_TEXTS.taxesPaidOnTime.title} />
                   </div>
                   <div className="flex gap-2 flex-wrap">
@@ -1846,7 +1846,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                           state.taxesPaidOnTime === opt
                             ? 'bg-white text-navy'
-                            : 'bg-white/10 text-white/80 hover:bg-white/20'
+                            : 'bg-slate-100 text-slate-700 hover:bg-white/20'
                         }`}
                       >
                         {opt}
@@ -1856,7 +1856,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 </div>
                 <div>
                   <div className="flex items-center mb-3">
-                    <span className="text-sm font-medium text-white/80">Inkomstdeklarationer inskickade och godkända? *</span>
+                    <span className="text-sm font-medium text-slate-700">Inkomstdeklarationer inskickade och godkända? *</span>
                     <HelpTooltip content={HELP_TEXTS.taxDeclarationsApproved.content} title={HELP_TEXTS.taxDeclarationsApproved.title} />
                   </div>
                   <div className="flex gap-2 flex-wrap">
@@ -1868,7 +1868,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                           state.taxDeclarationsApproved === opt
                             ? 'bg-white text-navy'
-                            : 'bg-white/10 text-white/80 hover:bg-white/20'
+                            : 'bg-slate-100 text-slate-700 hover:bg-white/20'
                         }`}
                       >
                         {opt}
@@ -1892,12 +1892,12 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             </div>
 
             {/* IT-säkerhet */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <Shield className="w-4 h-4 text-blue-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">IT-säkerhet</h3>
+                <h3 className="text-lg font-semibold text-slate-900">IT-säkerhet</h3>
               </div>
               
               {renderScalePills("itSecurityScale", "Hur väl skyddat är bolaget mot cyberattacker? *", "itSecurityScale")}
@@ -1907,19 +1907,19 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 <textarea
                   value={state.itSecurityComment}
                   onChange={e => updateField("itSecurityComment", e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[80px]"
+                  className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[80px]"
                   placeholder="T.ex. backup-rutiner, brandvägg, 2FA, kryptering, säkerhetsutbildning..."
                 />
               </div>
             </div>
 
             {/* Policyer & compliance */}
-            <div className="bg-white/5 rounded-xl p-5 space-y-4">
+            <div className="bg-slate-50 rounded-xl p-5 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center">
                   <CheckCircle className="w-4 h-4 text-emerald-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Policyer & compliance</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Policyer & compliance</h3>
               </div>
               
               <div className="grid md:grid-cols-2 gap-4">
@@ -1933,12 +1933,12 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             </div>
 
             {/* Risksammanfattning */}
-            <div className="border-t border-white/10 pt-6">
+            <div className="border-t border-slate-200 pt-6">
               <LabelWithHelp label="Sammanfattning av de viktigaste riskerna" helpContent={HELP_TEXTS.riskSummaryText.content} helpTitle={HELP_TEXTS.riskSummaryText.title} required />
               <textarea
                 value={state.riskSummaryText}
                 onChange={e => updateField("riskSummaryText", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
                 placeholder="Summera de viktigaste riskerna ur en köpares perspektiv..."
               />
             </div>
@@ -1949,8 +1949,8 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">9. Tillväxt & potential</h2>
-              <p className="text-white/70">Vilken potential en framtida köpare kan se.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">9. Tillväxt & potential</h2>
+              <p className="text-slate-600">Vilken potential en framtida köpare kan se.</p>
             </div>
             
             <div>
@@ -1958,7 +1958,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
               <textarea
                 value={state.growthInitiativesText}
                 onChange={e => updateField("growthInitiativesText", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
                 placeholder="Nya produkter, marknader, partnerskap, etc."
               />
             </div>
@@ -1974,7 +1974,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
               <textarea
                 value={state.competitionText}
                 onChange={e => updateField("competitionText", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
               />
             </div>
           </div>
@@ -1984,8 +1984,8 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">10. Försäljningsberedskap</h2>
-              <p className="text-white/70">Hur redo bolaget är att gå in i en strukturerad process.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">10. Försäljningsberedskap</h2>
+              <p className="text-slate-600">Hur redo bolaget är att gå in i en strukturerad process.</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
@@ -2014,15 +2014,15 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">11. Sammanfattning & resultat</h2>
-              <p className="text-white/70">Investeraranpassat sammandrag baserat på dina svar.</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">11. Sammanfattning & resultat</h2>
+              <p className="text-slate-600">Investeraranpassat sammandrag baserat på dina svar.</p>
             </div>
 
             {isAnalyzing ? (
               <div className="flex flex-col items-center justify-center py-16">
-                <Loader2 className="w-12 h-12 text-white animate-spin mb-4" />
-                <p className="text-white/80 text-lg">Analyserar ditt bolag med AI...</p>
-                <p className="text-white/60 text-sm mt-2">Detta kan ta upp till 30 sekunder</p>
+                <Loader2 className="w-12 h-12 text-slate-900 animate-spin mb-4" />
+                <p className="text-slate-700 text-lg">Analyserar ditt bolag med AI...</p>
+                <p className="text-slate-500 text-sm mt-2">Detta kan ta upp till 30 sekunder</p>
               </div>
             ) : error ? (
               <div className="bg-red-500/20 border border-red-500/30 rounded-xl p-6">
@@ -2032,7 +2032,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 </div>
                 <button
                   onClick={runAnalysis}
-                  className="mt-4 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors"
+                  className="mt-4 px-4 py-2 bg-slate-100 hover:bg-white/20 text-slate-900 rounded-lg transition-colors"
                 >
                   Försök igen
                 </button>
@@ -2040,8 +2040,8 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             ) : analysisResult ? (
               <>
                 {/* Readiness Score */}
-                <div className="bg-white/10 rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">Samlad säljberedskap</h3>
+                <div className="bg-slate-100 rounded-2xl p-6">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4">Samlad säljberedskap</h3>
                   <div className="flex items-center gap-4">
                     <div className="relative w-24 h-24">
                       <svg className="transform -rotate-90 w-24 h-24">
@@ -2052,7 +2052,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                           stroke="currentColor"
                           strokeWidth="8"
                           fill="none"
-                          className="text-white/10"
+                          className="text-slate-900/10"
                         />
                         <circle
                           cx="48"
@@ -2066,25 +2066,25 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                           className="text-emerald-400"
                         />
                       </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white">
+                      <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-slate-900">
                         {analysisResult.score}
                       </span>
                     </div>
                     <div>
-                      <p className="text-white/80">{analysisResult.summary}</p>
+                      <p className="text-slate-700">{analysisResult.summary}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* SWOT */}
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-4">SWOT-analys</h3>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4">SWOT-analys</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-emerald-500/20 border border-emerald-500/30 rounded-xl p-4">
                       <h4 className="font-semibold text-emerald-300 mb-2">Styrkor</h4>
                       <ul className="space-y-1">
                         {analysisResult.swot.strengths.map((s, i) => (
-                          <li key={i} className="text-white/80 text-sm flex items-start gap-2">
+                          <li key={i} className="text-slate-700 text-sm flex items-start gap-2">
                             <CheckCircle className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
                             {s}
                           </li>
@@ -2095,7 +2095,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       <h4 className="font-semibold text-amber-300 mb-2">Svagheter</h4>
                       <ul className="space-y-1">
                         {analysisResult.swot.weaknesses.map((w, i) => (
-                          <li key={i} className="text-white/80 text-sm flex items-start gap-2">
+                          <li key={i} className="text-slate-700 text-sm flex items-start gap-2">
                             <AlertTriangle className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
                             {w}
                           </li>
@@ -2106,7 +2106,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       <h4 className="font-semibold text-blue-300 mb-2">Möjligheter</h4>
                       <ul className="space-y-1">
                         {analysisResult.swot.opportunities.map((o, i) => (
-                          <li key={i} className="text-white/80 text-sm flex items-start gap-2">
+                          <li key={i} className="text-slate-700 text-sm flex items-start gap-2">
                             <Sparkles className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                             {o}
                           </li>
@@ -2117,7 +2117,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       <h4 className="font-semibold text-red-300 mb-2">Hot</h4>
                       <ul className="space-y-1">
                         {analysisResult.swot.threats.map((t, i) => (
-                          <li key={i} className="text-white/80 text-sm flex items-start gap-2">
+                          <li key={i} className="text-slate-700 text-sm flex items-start gap-2">
                             <Shield className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
                             {t}
                           </li>
@@ -2128,32 +2128,32 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 </div>
 
                 {/* Valuation Range */}
-                <div className="bg-white/10 rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">Indikativt värderingsspann</h3>
+                <div className="bg-slate-100 rounded-2xl p-6">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4">Indikativt värderingsspann</h3>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="bg-navy rounded-xl px-6 py-4 text-center">
-                      <p className="text-white/60 text-sm">Spann</p>
-                      <p className="text-2xl font-bold text-white">
+                      <p className="text-slate-500 text-sm">Spann</p>
+                      <p className="text-2xl font-bold text-slate-900">
                         {analysisResult.valuationRange.min}–{analysisResult.valuationRange.max} MSEK
                       </p>
                     </div>
                     <div className="bg-navy rounded-xl px-6 py-4 text-center">
-                      <p className="text-white/60 text-sm">Multipel</p>
-                      <p className="text-2xl font-bold text-white">
+                      <p className="text-slate-500 text-sm">Multipel</p>
+                      <p className="text-2xl font-bold text-slate-900">
                         {analysisResult.valuationRange.multipleMin}–{analysisResult.valuationRange.multipleMax}× EBITDA
                       </p>
                     </div>
                   </div>
-                  <p className="text-white/60 text-sm">{analysisResult.valuationRange.basis}</p>
+                  <p className="text-slate-500 text-sm">{analysisResult.valuationRange.basis}</p>
                 </div>
 
                 {/* Recommendations */}
-                <div className="bg-white/10 rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">Rekommendationer</h3>
+                <div className="bg-slate-100 rounded-2xl p-6">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4">Rekommendationer</h3>
                   <ul className="space-y-2">
                     {analysisResult.recommendations.map((r, i) => (
-                      <li key={i} className="flex items-start gap-3 text-white/80">
-                        <span className="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
+                      <li key={i} className="flex items-start gap-3 text-slate-700">
+                        <span className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
                           {i + 1}
                         </span>
                         {r}
@@ -2163,11 +2163,11 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 </div>
 
                 {/* Pitchdeck Preview */}
-                <div className="bg-white/10 rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">Pitchdeck-struktur</h3>
+                <div className="bg-slate-100 rounded-2xl p-6">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4">Pitchdeck-struktur</h3>
                   <div className="flex flex-wrap gap-2">
                     {analysisResult.pitchdeckSlides.map((slide, i) => (
-                      <span key={i} className="bg-navy/50 text-white/80 px-3 py-1.5 rounded-full text-sm">
+                      <span key={i} className="bg-navy/50 text-slate-700 px-3 py-1.5 rounded-full text-sm">
                         {slide}
                       </span>
                     ))}
@@ -2179,7 +2179,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                   <button
                     onClick={generatePdf}
                     disabled={isGeneratingPdf}
-                    className="relative group px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700"
+                    className="relative group px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 bg-gradient-to-r from-emerald-500 to-emerald-600 text-slate-900 hover:from-emerald-600 hover:to-emerald-700"
                   >
                     {/* Pulsing shadow effect */}
                     {!isGeneratingPdf && (
@@ -2203,10 +2203,10 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
               </>
             ) : (
               <div className="flex flex-col items-center justify-center py-16">
-                <div className="bg-white/10 rounded-2xl p-8 text-center max-w-md">
+                <div className="bg-slate-100 rounded-2xl p-8 text-center max-w-md">
                   <Sparkles className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-white mb-2">Redo att generera din rapport?</h3>
-                  <p className="text-white/60 mb-6">
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">Redo att generera din rapport?</h3>
+                  <p className="text-slate-500 mb-6">
                     {mainStepsComplete < 10 
                       ? `Fyll i resterande ${10 - mainStepsComplete} steg för att få din fullständiga analys.`
                       : 'Klicka på knappen nedan för att skapa din personliga sanitycheck-rapport.'
@@ -2220,8 +2220,8 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       className={`
                         relative group px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300
                         ${mainStepsComplete >= 10 
-                          ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 cursor-pointer'
-                          : 'bg-white/20 text-white/50 cursor-not-allowed'
+                          ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-slate-900 hover:from-emerald-600 hover:to-emerald-700 cursor-pointer'
+                          : 'bg-white/20 text-slate-400 cursor-not-allowed'
                         }
                       `}
                     >
@@ -2249,7 +2249,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       onClick={() => {
                         setAnalysisResult(DEMO_ANALYSIS_RESULT)
                       }}
-                      className="px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300 bg-white/10 text-white hover:bg-white/20 border border-white/20"
+                      className="px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300 bg-slate-100 text-slate-900 hover:bg-white/20 border border-slate-300"
                     >
                       <span className="flex items-center justify-center gap-2">
                         <FileText className="w-4 h-4" />
@@ -2260,13 +2260,13 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                   
                   {mainStepsComplete < 10 && (
                     <div className="mt-4 flex items-center justify-center gap-2">
-                      <div className="w-full bg-white/10 rounded-full h-2">
+                      <div className="w-full bg-slate-100 rounded-full h-2">
                         <div 
                           className="bg-emerald-500 h-2 rounded-full transition-all duration-500"
                           style={{ width: `${(mainStepsComplete / 10) * 100}%` }}
                         />
                       </div>
-                      <span className="text-white/60 text-sm whitespace-nowrap">{mainStepsComplete}/10</span>
+                      <span className="text-slate-500 text-sm whitespace-nowrap">{mainStepsComplete}/10</span>
                     </div>
                   )}
                 </div>
@@ -2279,12 +2279,12 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">12. Uppgradering & nästa steg</h2>
-              <p className="text-white/70">Du använder idag sanitycheck i freemium-läge. Vill du uppgradera?</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">12. Uppgradering & nästa steg</h2>
+              <p className="text-slate-600">Du använder idag sanitycheck i freemium-läge. Vill du uppgradera?</p>
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-white/80 mb-4">Val av paket</label>
+              <label className="block text-sm font-medium text-slate-700 mb-4">Val av paket</label>
               <div className="grid md:grid-cols-3 gap-4">
                 {[
                   { id: "freemium", label: "Freemium", desc: "Gratis sanitycheck med grundläggande feedback" },
@@ -2298,15 +2298,15 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     className={`p-6 rounded-2xl text-left transition-all duration-200 ${
                       state.upgradeChoice === opt.id
                         ? 'bg-white text-navy ring-2 ring-white'
-                        : 'bg-white/10 text-white hover:bg-white/20'
+                        : 'bg-slate-100 text-slate-900 hover:bg-white/20'
                     }`}
                   >
-                    <h4 className={`font-bold mb-1 ${state.upgradeChoice === opt.id ? 'text-navy' : 'text-white'}`}>{opt.label}</h4>
-                    <p className={`text-sm mb-2 ${state.upgradeChoice === opt.id ? 'text-navy/70' : 'text-white/80'}`}>
+                    <h4 className={`font-bold mb-1 ${state.upgradeChoice === opt.id ? 'text-navy' : 'text-slate-900'}`}>{opt.label}</h4>
+                    <p className={`text-sm mb-2 ${state.upgradeChoice === opt.id ? 'text-navy/70' : 'text-slate-700'}`}>
                       {opt.desc}
                     </p>
                     {opt.price && (
-                      <p className={`font-bold ${state.upgradeChoice === opt.id ? 'text-navy' : 'text-white'}`}>
+                      <p className={`font-bold ${state.upgradeChoice === opt.id ? 'text-navy' : 'text-slate-900'}`}>
                         {opt.price}
                       </p>
                     )}
@@ -2316,11 +2316,11 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-white/80 mb-2">Kommentar eller frågor (valfritt)</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Kommentar eller frågor (valfritt)</label>
               <textarea
                 value={state.upgradeComment}
                 onChange={e => updateField("upgradeComment", e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-colors min-h-[100px]"
+                className="w-full px-4 py-3 bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-white/40 focus:outline-none focus:border-slate-400 transition-colors min-h-[100px]"
               />
             </div>
 
@@ -2385,7 +2385,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       onClick={() => setActiveStep(step.id)}
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-full text-sm transition-all duration-200 ${
                         isActive
-                          ? 'bg-navy text-white'
+                          ? 'bg-navy text-slate-900'
                           : isComplete
                           ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
                           : 'hover:bg-gray-100 text-gray-600'
@@ -2393,7 +2393,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                     >
                       <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium ${
                         isActive || isComplete
-                          ? 'bg-emerald-500 text-white'
+                          ? 'bg-emerald-500 text-slate-900'
                           : 'border border-gray-300 text-gray-400'
                       }`}>
                         {isComplete ? <Check className="w-3 h-3" /> : step.id}
@@ -2437,7 +2437,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-200 ${
                   activeStep === stepMeta.length
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-navy text-white hover:bg-navy/90'
+                    : 'bg-navy text-slate-900 hover:bg-navy/90'
                 }`}
               >
                 {activeStep === 10 && !analysisResult ? (
@@ -2465,23 +2465,23 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
             <div className="bg-navy px-8 py-8 flex-shrink-0">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-white/10 rounded-xl">
-                    <Building2 className="w-6 h-6 text-white" />
+                  <div className="p-2 bg-slate-100 rounded-xl">
+                    <Building2 className="w-6 h-6 text-slate-900" />
                   </div>
-                  <span className="text-white/60 text-sm font-medium uppercase tracking-wider">Välj bransch</span>
+                  <span className="text-slate-500 text-sm font-medium uppercase tracking-wider">Välj bransch</span>
                 </div>
                 <button
                   onClick={() => setShowIndustryModal(false)}
-                  className="p-2 hover:bg-white/10 rounded-xl transition-all duration-200 group"
+                  className="p-2 hover:bg-slate-100 rounded-xl transition-all duration-200 group"
                 >
-                  <X className="w-6 h-6 text-white/60 group-hover:text-white transition-colors" />
+                  <X className="w-6 h-6 text-slate-500 group-hover:text-slate-900 transition-colors" />
                 </button>
               </div>
               
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-3xl font-bold text-slate-900 mb-2">
                 Vilken bransch verkar ditt företag i?
               </h2>
-              <p className="text-base text-white/70 max-w-2xl">
+              <p className="text-base text-slate-600 max-w-2xl">
                 Välj den kategori som bäst beskriver er verksamhet.
               </p>
             </div>
@@ -2502,7 +2502,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                       className={`
                         relative group text-left p-4 rounded-xl border-2 transition-all duration-200
                         ${isSelected 
-                          ? 'border-navy bg-navy text-white shadow-lg' 
+                          ? 'border-navy bg-navy text-slate-900 shadow-lg' 
                           : 'border-gray-200 bg-white hover:border-navy/30 hover:shadow-md'
                         }
                       `}
@@ -2524,16 +2524,16 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                           : 'bg-navy'
                         }
                       `}>
-                        <div className="text-white">
+                        <div className="text-slate-900">
                           {industry.icon}
                         </div>
                       </div>
                       
                       {/* Content */}
-                      <h3 className={`font-bold text-sm mb-1 ${isSelected ? 'text-white' : 'text-gray-900'}`}>
+                      <h3 className={`font-bold text-sm mb-1 ${isSelected ? 'text-slate-900' : 'text-gray-900'}`}>
                         {industry.label}
                       </h3>
-                      <p className={`text-xs leading-relaxed ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
+                      <p className={`text-xs leading-relaxed ${isSelected ? 'text-slate-700' : 'text-gray-500'}`}>
                         {industry.description}
                       </p>
                     </button>
@@ -2556,7 +2556,7 @@ export default function SanitycheckWizard({ onComplete }: SanitycheckWizardProps
                 
                 <button
                   onClick={() => setShowIndustryModal(false)}
-                  className="px-6 py-3 bg-navy text-white font-bold rounded-lg hover:bg-navy/90 transition-colors"
+                  className="px-6 py-3 bg-navy text-slate-900 font-bold rounded-lg hover:bg-navy/90 transition-colors"
                 >
                   Stäng
                 </button>

@@ -15,7 +15,9 @@ import {
   Clock,
   Star,
   ChevronRight,
-  ExternalLink
+  ExternalLink,
+  FileText,
+  Target
 } from 'lucide-react'
 
 export default function HomePage() {
@@ -85,55 +87,65 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background effects */}
-      <div className="hero-glow top-20 -left-20 opacity-50" />
-      <div className="hero-glow bottom-20 right-0 opacity-30" />
-      
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="relative z-10 px-6 py-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image 
-              src="/Logo/Valiora_logo.png" 
-              alt="Valiora Analytics" 
-              width={140} 
-              height={40}
-              className="h-9 w-auto"
-            />
-          </div>
-          
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-slate-600 hover:text-slate-900 transition-colors">Funktioner</a>
-            <a href="#how-it-works" className="text-slate-600 hover:text-slate-900 transition-colors">Så fungerar det</a>
-            <a href="#pricing" className="text-slate-600 hover:text-slate-900 transition-colors">Priser</a>
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <button className="text-slate-600 hover:text-slate-900 transition-colors hidden sm:block">
-              Logga in
-            </button>
-            <Link href="/sanity-check" className="btn-primary text-sm">
-              Starta analys
-            </Link>
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-8">
+              <Image 
+                src="/Logo/Valiora_logo.png" 
+                alt="Valiora Analytics" 
+                width={140} 
+                height={40}
+                className="h-8 w-auto"
+              />
+              <div className="hidden md:flex items-center gap-6">
+                <a href="#features" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+                  Funktioner
+                </a>
+                <a href="#how-it-works" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+                  Så fungerar det
+                </a>
+                <a href="#about" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+                  Om oss
+                </a>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <button className="btn-ghost hidden sm:flex">
+                Logga in
+              </button>
+              <Link href="/sanity-check" className="btn-primary">
+                Starta analys
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative z-10 px-6 pt-12 pb-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <section className="relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-teal-100/50 to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-slate-100 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-24">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* Left column - Text */}
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-200">
-                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse-subtle" />
                 <span className="text-sm text-teal-700 font-medium">AI-driven företagsanalys</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-slate-900">Är ditt företag </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
+                Är ditt företag{' '}
                 <span className="text-gradient">redo för försäljning?</span>
               </h1>
               
@@ -145,30 +157,31 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
                   href="/sanity-check" 
-                  className="btn-primary inline-flex items-center justify-center gap-2 text-base group"
+                  className="btn-primary text-base px-8 py-4"
                 >
                   Starta gratis analys
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
-                <button className="btn-secondary inline-flex items-center justify-center gap-2 text-base">
+                <button className="btn-secondary text-base px-8 py-4">
                   Se exempel
                 </button>
               </div>
               
+              {/* Social proof */}
               <div className="flex items-center gap-6 pt-4">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
                     <div 
                       key={i}
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-100 to-teal-50 border-2 border-white flex items-center justify-center shadow-sm"
+                      className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 border-2 border-white flex items-center justify-center text-white text-sm font-medium"
                     >
-                      <Users className="w-4 h-4 text-teal-600" />
+                      {String.fromCharCode(64 + i)}
                     </div>
                   ))}
                 </div>
                 <div className="text-sm">
                   <div className="flex items-center gap-1 text-slate-900">
-                    <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
                     <span className="font-semibold">4.9</span>
                     <span className="text-slate-400">/5</span>
                   </div>
@@ -177,97 +190,64 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right column - Hero Card (CTA) */}
+            {/* Right column - Card */}
             <div className="relative">
-              <div className="hero-card shadow-pulse p-8 sm:p-10">
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#00d4aa]/10 to-transparent rounded-tr-3xl" />
+              <div className="card-hover p-8 animate-fade-in-up">
+                {/* Header */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg shadow-teal-500/30">
+                    <FileText className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900">Sanity Check</h3>
+                    <p className="text-slate-500">Komplett företagsanalys</p>
+                  </div>
+                </div>
                 
-                <div className="relative space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center">
-                      <Building2 className="w-6 h-6 text-teal-600" />
+                {/* Description */}
+                <p className="text-slate-600 mb-6">
+                  Analysera ditt företags försäljningsberedskap genom 12 kritiska 
+                  områden och få konkreta insikter på under 10 minuter.
+                </p>
+                
+                {/* Checklist */}
+                <div className="grid grid-cols-2 gap-3 mb-8">
+                  {[
+                    'Bolagsöversikt',
+                    'Ägarberoende',
+                    'Intäktsmodell',
+                    'Lönsamhet',
+                    'Kundbas',
+                    'Team',
+                    'Processer',
+                    'Risk & compliance'
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-teal-600 flex-shrink-0" />
+                      <span className="text-sm text-slate-600">{item}</span>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-slate-900">Sanity Check</h3>
-                      <p className="text-sm text-slate-500">Komplett företagsanalys</p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <p className="text-slate-600 leading-relaxed">
-                      Analysera ditt företags försäljningsberedskap genom 12 kritiska 
-                      områden och få konkreta insikter på under 10 minuter.
-                    </p>
-                    
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        'Bolagsöversikt',
-                        'Ägarberoende',
-                        'Intäktsmodell',
-                        'Lönsamhet',
-                        'Kundbas',
-                        'Team',
-                        'Processer',
-                        'Risk & compliance'
-                      ].map((item) => (
-                        <div key={item} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-teal-600 flex-shrink-0" />
-                          <span className="text-sm text-slate-600">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="pt-2">
-                    <Link
-                      href="/sanity-check"
-                      className="w-full btn-primary inline-flex items-center justify-center gap-3 py-4 text-base group"
-                    >
-                      <span>Starta din analys nu</span>
-                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                    
-                    <div className="flex items-center justify-center gap-4 mt-4 text-sm text-slate-500">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>~10 min</span>
-                      </div>
-                      <div className="w-1 h-1 rounded-full bg-slate-300" />
-                      <span>Gratis att starta</span>
-                      <div className="w-1 h-1 rounded-full bg-slate-300" />
-                      <span>Ingen registrering</span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              </div>
-              
-              {/* Floating badges */}
-              <div className="absolute -left-4 top-1/4 animate-float delay-200">
-                <div className="glass-strong rounded-xl px-4 py-3 shadow-lg">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center">
-                      <Zap className="w-4 h-4 text-teal-600" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-500">Genomsnittlig tid</p>
-                      <p className="text-sm font-semibold text-slate-900">10 minuter</p>
-                    </div>
+                
+                {/* CTA */}
+                <Link
+                  href="/sanity-check"
+                  className="btn-primary w-full justify-center py-4 text-base"
+                >
+                  Starta din analys nu
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                
+                {/* Meta */}
+                <div className="flex items-center justify-center gap-4 mt-4 text-sm text-slate-500">
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" />
+                    <span>~10 min</span>
                   </div>
-                </div>
-              </div>
-              
-              <div className="absolute -right-4 bottom-1/4 animate-float delay-500">
-                <div className="glass-strong rounded-xl px-4 py-3 shadow-lg">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center">
-                      <Shield className="w-4 h-4 text-teal-600" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-500">AI-driven</p>
-                      <p className="text-sm font-semibold text-slate-900">Objektiv analys</p>
-                    </div>
-                  </div>
+                  <span>•</span>
+                  <span>Gratis</span>
+                  <span>•</span>
+                  <span>Ingen registrering</span>
                 </div>
               </div>
             </div>
@@ -276,17 +256,17 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative z-10 px-6 py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <section className="py-16 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div 
                 key={stat.label}
-                className="stat-card text-center animate-fade-in-up"
+                className="text-center animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="stat-value">{stat.value}</div>
-                <div className="stat-label">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-gradient">{stat.value}</div>
+                <div className="text-sm text-slate-600 mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -294,8 +274,8 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative z-10 px-6 py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
+      <section id="features" className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               Komplett analys på <span className="text-gradient">10 minuter</span>
@@ -310,23 +290,23 @@ export default function HomePage() {
             {features.map((feature, index) => (
               <div 
                 key={feature.title}
-                className="card-glow p-6 group animate-fade-in-up"
+                className="card-hover p-6 animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6 text-teal-600" />
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{feature.description}</p>
+                <p className="text-sm text-slate-600">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Tab Section - Who is it for */}
-      <section id="how-it-works" className="relative z-10 px-6 py-24">
-        <div className="max-w-5xl mx-auto">
+      {/* Tab Section */}
+      <section id="how-it-works" className="py-24 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               Vem är det för?
@@ -338,30 +318,25 @@ export default function HomePage() {
           
           {/* Tabs */}
           <div className="flex justify-center mb-10">
-            <div className="tab-group">
-              <button 
-                onClick={() => setActiveTab('owner')}
-                className={`tab-item ${activeTab === 'owner' ? 'active' : ''}`}
-              >
-                Företagsägare
-              </button>
-              <button 
-                onClick={() => setActiveTab('buyer')}
-                className={`tab-item ${activeTab === 'buyer' ? 'active' : ''}`}
-              >
-                Förvärvare
-              </button>
-              <button 
-                onClick={() => setActiveTab('advisor')}
-                className={`tab-item ${activeTab === 'advisor' ? 'active' : ''}`}
-              >
-                Rådgivare
-              </button>
+            <div className="tab-list">
+              {[
+                { key: 'owner', label: 'Företagsägare' },
+                { key: 'buyer', label: 'Förvärvare' },
+                { key: 'advisor', label: 'Rådgivare' }
+              ].map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key as typeof activeTab)}
+                  className={activeTab === tab.key ? 'tab-active' : 'tab'}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
           </div>
           
           {/* Tab Content */}
-          <div className="card-glow shadow-pulse-slow p-8 sm:p-10">
+          <div className="card p-8 sm:p-10">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
                 <div>
@@ -375,8 +350,8 @@ export default function HomePage() {
                 
                 <ul className="space-y-4">
                   {tabContent[activeTab].points.map((point, index) => (
-                    <li key={index} className="flex items-start gap-3 animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                      <div className="w-6 h-6 rounded-full bg-teal-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <CheckCircle className="w-4 h-4 text-teal-600" />
                       </div>
                       <span className="text-slate-600">{point}</span>
@@ -386,7 +361,7 @@ export default function HomePage() {
                 
                 <Link 
                   href="/sanity-check"
-                  className="inline-flex items-center gap-2 text-teal-600 font-medium hover:gap-3 transition-all group"
+                  className="inline-flex items-center gap-2 text-teal-600 font-medium hover:text-teal-700 transition-colors group"
                 >
                   Kom igång nu
                   <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -394,11 +369,11 @@ export default function HomePage() {
               </div>
               
               <div className="relative">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-teal-50 to-transparent flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-teal-50 flex items-center justify-center animate-pulse">
-                    {activeTab === 'owner' && <Building2 className="w-16 h-16 text-teal-600" />}
-                    {activeTab === 'buyer' && <TrendingUp className="w-16 h-16 text-teal-600" />}
-                    {activeTab === 'advisor' && <Users className="w-16 h-16 text-teal-600" />}
+                <div className="aspect-square rounded-2xl bg-gradient-to-br from-teal-50 to-slate-50 flex items-center justify-center border border-slate-200">
+                  <div className="w-24 h-24 rounded-full bg-teal-100 flex items-center justify-center">
+                    {activeTab === 'owner' && <Building2 className="w-12 h-12 text-teal-600" />}
+                    {activeTab === 'buyer' && <TrendingUp className="w-12 h-12 text-teal-600" />}
+                    {activeTab === 'advisor' && <Users className="w-12 h-12 text-teal-600" />}
                   </div>
                 </div>
               </div>
@@ -407,13 +382,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Pactior Group Section */}
-      <section className="relative z-10 px-6 py-24 bg-slate-50">
-        <div className="max-w-5xl mx-auto">
+      {/* About Pactior Section */}
+      <section id="about" className="py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <p className="text-teal-600 text-sm font-medium mb-3">En del av Pactior Group</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-              Teknologi kombinerat med <span className="text-gradient">mänsklig expertis</span>
+              Teknologi kombinerat med{' '}
+              <span className="text-gradient">mänsklig expertis</span>
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Valiora Analytics är en del av Pactior Group - finansiella lösningar 
@@ -428,9 +404,9 @@ export default function HomePage() {
               { title: 'Innovation', desc: 'Moderna verktyg för bättre resultat' },
               { title: 'Transparens', desc: 'Tydlig kommunikation genom hela processen' }
             ].map((value) => (
-              <div key={value.title} className="glass rounded-xl p-5 text-center">
-                <h3 className="text-slate-900 font-semibold mb-2">{value.title}</h3>
-                <p className="text-sm text-slate-500">{value.desc}</p>
+              <div key={value.title} className="card p-6 text-center">
+                <h3 className="font-semibold text-slate-900 mb-2">{value.title}</h3>
+                <p className="text-sm text-slate-600">{value.desc}</p>
               </div>
             ))}
           </div>
@@ -440,9 +416,9 @@ export default function HomePage() {
               href="https://pactior-production.up.railway.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 transition-colors group"
+              className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-medium transition-colors group"
             >
-              <span className="font-medium">Läs mer om Pactior Group</span>
+              Läs mer om Pactior Group
               <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
@@ -450,131 +426,87 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-10 px-6 py-24">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="card-glow shadow-pulse p-10 sm:p-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-              Redo att analysera ditt företag?
-            </h2>
-            <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto">
-              Få en objektiv bild av ditt företags försäljningsberedskap 
-              och konkreta rekommendationer på under 10 minuter.
-            </p>
-            <Link 
-              href="/sanity-check"
-              className="btn-primary inline-flex items-center gap-2 text-base px-8 py-4 group"
-            >
-              Starta gratis analys
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <p className="text-sm text-slate-500 mt-4">
-              Ingen registrering krävs • Resultat på 10 minuter
-            </p>
-          </div>
+      <section className="py-24 bg-gradient-to-br from-teal-600 to-teal-700">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Redo att analysera ditt företag?
+          </h2>
+          <p className="text-lg text-teal-100 mb-8 max-w-xl mx-auto">
+            Få en objektiv bild av ditt företags försäljningsberedskap 
+            och konkreta rekommendationer på under 10 minuter.
+          </p>
+          <Link 
+            href="/sanity-check"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-teal-700 font-semibold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
+          >
+            Starta gratis analys
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+          <p className="text-sm text-teal-200 mt-4">
+            Ingen registrering krävs • Resultat på 10 minuter
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 px-6 py-16 border-t border-slate-200 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
+      <footer className="py-16 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
-            {/* Brand & Description */}
+            {/* Brand */}
             <div className="md:col-span-2 space-y-4">
               <Image 
                 src="/Logo/Valiora_logo.png" 
                 alt="Valiora Analytics" 
                 width={120} 
                 height={36}
-                className="h-8 w-auto"
+                className="h-8 w-auto brightness-0 invert"
               />
-              <p className="text-slate-500 text-sm leading-relaxed max-w-md">
+              <p className="text-slate-400 text-sm max-w-md">
                 Valiora Analytics erbjuder professionella företagsvärderingar med hjälp av 
-                avancerad dataanalys och branschexpertis. Få en rättvis och transparent 
-                värdering av ditt företag.
+                avancerad dataanalys och branschexpertis.
               </p>
               <div className="pt-2">
-                <p className="text-xs text-slate-400 mb-2">En del av</p>
+                <p className="text-xs text-slate-500 mb-1">En del av</p>
                 <a 
                   href="https://pactior-production.up.railway.app" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-teal-600 hover:text-teal-700 transition-colors group"
+                  className="text-teal-400 hover:text-teal-300 font-medium transition-colors"
                 >
-                  <span className="font-semibold">Pactior Group</span>
-                  <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                  Pactior Group
                 </a>
               </div>
             </div>
             
             {/* Navigation */}
-            <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-slate-900">Navigation</h4>
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-4">Navigation</h4>
               <ul className="space-y-2">
-                <li>
-                  <a href="#features" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
-                    Funktioner
-                  </a>
-                </li>
-                <li>
-                  <a href="#how-it-works" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
-                    Så fungerar det
-                  </a>
-                </li>
-                <li>
-                  <Link href="/sanity-check" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
-                    Starta analys
-                  </Link>
-                </li>
+                <li><a href="#features" className="text-sm text-slate-400 hover:text-white transition-colors">Funktioner</a></li>
+                <li><a href="#how-it-works" className="text-sm text-slate-400 hover:text-white transition-colors">Så fungerar det</a></li>
+                <li><Link href="/sanity-check" className="text-sm text-slate-400 hover:text-white transition-colors">Starta analys</Link></li>
               </ul>
             </div>
             
-            {/* Pactior Group */}
-            <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-slate-900">Pactior Group</h4>
+            {/* Pactior */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-4">Pactior Group</h4>
               <ul className="space-y-2">
-                <li>
-                  <a 
-                    href="https://pactior-production.up.railway.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm text-slate-500 hover:text-slate-700 transition-colors"
-                  >
-                    Om Pactior Group
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://pactior-production.up.railway.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm text-slate-500 hover:text-slate-700 transition-colors"
-                  >
-                    Trestor Partners
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://pactior-production.up.railway.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm text-slate-500 hover:text-slate-700 transition-colors"
-                  >
-                    Kontakt
-                  </a>
-                </li>
+                <li><a href="https://pactior-production.up.railway.app" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-400 hover:text-white transition-colors">Om Pactior Group</a></li>
+                <li><a href="https://pactior-production.up.railway.app" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-400 hover:text-white transition-colors">Trestor Partners</a></li>
+                <li><a href="https://pactior-production.up.railway.app" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-400 hover:text-white transition-colors">Kontakt</a></li>
               </ul>
             </div>
           </div>
           
-          {/* Bottom bar */}
-          <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-slate-400">
-              © 2025 Valiora Analytics. En del av Pactior Group AB. Alla rättigheter förbehållna.
+          {/* Bottom */}
+          <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-slate-500">
+              © 2025 Valiora Analytics. En del av Pactior Group AB.
             </p>
-            <div className="flex items-center gap-6 text-xs text-slate-400">
-              <a href="#" className="hover:text-slate-600 transition-colors">Integritetspolicy</a>
-              <a href="#" className="hover:text-slate-600 transition-colors">Villkor</a>
-              <a href="#" className="hover:text-slate-600 transition-colors">Cookies</a>
+            <div className="flex items-center gap-6 text-xs text-slate-500">
+              <a href="#" className="hover:text-slate-300 transition-colors">Integritetspolicy</a>
+              <a href="#" className="hover:text-slate-300 transition-colors">Villkor</a>
             </div>
           </div>
         </div>
@@ -582,4 +514,3 @@ export default function HomePage() {
     </div>
   )
 }
-
