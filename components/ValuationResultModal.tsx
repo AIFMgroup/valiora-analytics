@@ -20,15 +20,17 @@ interface ValuationResult {
 }
 
 interface ValuationResultModalProps {
-  isOpen: boolean
+  isOpen?: boolean
   onClose: () => void
   result: ValuationResult | null
+  inputData?: Record<string, unknown>
 }
 
 export default function ValuationResultModal({ 
-  isOpen, 
+  isOpen = true, 
   onClose, 
-  result 
+  result,
+  inputData 
 }: ValuationResultModalProps) {
   if (!isOpen || !result) return null
 

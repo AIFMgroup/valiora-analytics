@@ -12,9 +12,11 @@
   "dependencies": {
     "@prisma/client": "^5.22.0",
     "@react-pdf/renderer": "^3.4.4",
+    "@types/pdfkit": "^0.17.4",
     "lucide-react": "^0.460.0",
     "next": "14.2.18",
     "next-intl": "^4.5.8",
+    "pdfkit": "^0.17.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zustand": "^4.5.5"
